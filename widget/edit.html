@@ -1,0 +1,48 @@
+<!-- Copyright start
+  Copyright (C) 2008 - 2024 Fortinet Inc.
+  All rights reserved.
+  FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
+  Copyright end -->
+<form data-ng-submit="save()" class="noMargin" name="heatmapForm" data-ng-class="{'state-wait': processing }"
+    novalidate>
+    <div class="modal-header">
+        <h3 class="modal-title col-md-9">Edit heatmap</h3>
+        <button type="button" class="close" data-ng-click="cancel()" data-dismiss="modal" aria-label="Close"
+            id="close-edit-widget-form-btn">
+            <div aria-hidden="true" class="version-button">+</div>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div>
+            <div class="form-group" data-ng-class="{ 'has-error': heatmapForm.title.$invalid && heatmapForm.title.$touched }">
+                <label for="title" class="control-label">{{'COMPONENTS.VIEW_TEMPLATES.WIDGETS.CHART.TITLE' | translate}}<span class="text-danger">*</span>
+                </label>
+                <input id="title" name="title" type="text" class="form-control" data-ng-model="config.title" required>
+                <div data-cs-messages="heatmapForm.title"></div>
+              </div>
+            <div class="form-group"
+              data-ng-class="{ 'has-error': heatmapForm.resource.$invalid && heatmapForm.resource.$touched }"
+              data-ng-if="modules">
+              <label for="resource" class="control-label">Data Source<span class="text-danger">*</span></label>
+              <select name="resource" id="resource" class="form-control"
+                data-ng-options="module.type as module.name for module in modules" data-ng-model="config.resource"
+                required data-ng-change="loadAttributes()">
+                <option value="">{{viewWidgetVars.LABEL_SELECT_AN_OPTION}}</option>
+              </select>
+              <div data-cs-messages="heatmapForm.resource"></div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="picklistField">Select Field</label>
+                <select class="form-control" name="picklistField" id="picklistField" data-ng-options="field.name as field.title for field in pickListFields" ng-model="config.picklistField">
+                  <option value="">{{'COMPONENTS.FILTER.CONDITIONAL.SELECT_A_FIELD' | translate}}</option>
+                </select>
+              </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button id="edit-widget-save" type="submit" class="btn btn-sm btn-primary"><i
+                class="icon icon-check margin-right-sm"></i>Save</button>
+        <button id="edit-widget-cancel" type="button" class="btn btn-sm btn-default" data-ng-click="cancel()"><i
+                class="icon icon-close margin-right-sm"></i>Close</button>
+    </div>
+</form>
