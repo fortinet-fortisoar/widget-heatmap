@@ -1,0 +1,29 @@
+{
+    "name": "heatmap",
+    "title": "Heatmap",
+    "subTitle": "Show Fortisoar data having 2D property using heatmap",
+    "version": "1.0.0",
+    "publishedDate": 1733726076,
+    "releaseNotes": "unavailable",
+    "metadata": {
+        "description": "",
+        "pages": [
+            "Dashboard",
+            "Reports",
+            "View Panel"
+        ],
+        "certified": "No",
+        "publisher": "",
+        "compatibility": [
+            "7.6.1"
+        ],
+        "category": [
+            "Analytics and SIEM",
+            "Insider Threat",
+            "Malware Analysis",
+            "Threat Intelligence",
+            "Vulnerability and Risk Management"
+        ]
+    },
+    "development": false
+}
