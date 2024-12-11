@@ -59,6 +59,7 @@
       $scope.fields = [];
       $scope.fieldsArray = [];
       $scope.pickListFields = [];
+      $scope.multipleFields = [];
       $scope.userField = [];
       var entity = new Entity($scope.config.resource);
       entity.loadFields().then(function () {
@@ -67,6 +68,9 @@
             entity.fields[key].type = 'datetime.quick';
           } else if (entity.fields[key].type === 'picklist') {
             $scope.pickListFields.push(entity.fields[key]);
+          }
+          else if(entity.fields[key].type !== 'picklist'){
+            $scope.multipleFields.push(entity.fields[key]);
           }
         }
 

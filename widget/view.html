@@ -16,10 +16,17 @@
         </div>
     </div>
     <div data-ng-hide="collapsed">
+        <!-- <div class="padding-left-lg padding-bottom-lg">
+            <div data-ng-if="multipleFieldsItems" class="display-flex-space-between font-08em padding-right-15">
+                <div data-ng-repeat="fieldItem in multipleFieldsItems">
+                    {{fieldItem.title}} : {{responseData[fieldItem.title]}}
+                </div>
+            </div>
+        </div> -->
         <div class="padding-left-lg padding-bottom-lg">
-            <div class="progress margin-right-12">
-                <div data-ng-repeat="element in distribution" class="progress-bar" role="progressbar"
-                    ng-style="{'width':distributionSegment + '%' ,'background-color': element.color}">
+            <div data-ng-if="!processing" class="progress margin-right-12">
+                <div data-ng-repeat="element in distribution" class="progress-bar truncate" role="progressbar"
+                    ng-style="{'width':distributionSegment + '%' ,'background-color': element.color}" title="{{element[picklistField] }}: {{element.total}}">
                     {{element[picklistField] }}: {{element.total}}
                 </div>
             </div>
