@@ -31,8 +31,22 @@
               </select>
               <div data-cs-messages="heatmapForm.resource"></div>
             </div>
+            <div class="form-group cs-select">
+              <label class="control-label" for="picklistField">Select Fields</label>
+              <ui-select name="multipleFieldsItems" data-ng-model="config.multipleFieldsItems" multiple
+                class="custom-multi-select" tagging="undefined" tagging-label="false">
+                <ui-select-match placeholder="Select Fields">{{$item.title}}</ui-select-match>
+                <ui-select-choices repeat="option in multipleFields | filter: $select.search" refresh-delay="0"
+                  ng-show="($select.items.length >= 0) || ">
+                  <div ng-bind="option.title"></div>
+                </ui-select-choices>
+              </ui-select>
+              <span class="fa fa-sort-desc"></span>
+            </div>
+            <div data-cs-messages="heatmapForm.multipleFieldsItems"></div>
+          </div>
             <div class="form-group">
-                <label class="control-label" for="picklistField">Select Field</label>
+                <label class="control-label" for="picklistField">Select Picklist</label>
                 <select class="form-control" name="picklistField" id="picklistField" data-ng-options="field.name as field.title for field in pickListFields" ng-model="config.picklistField">
                   <option value="">{{'COMPONENTS.FILTER.CONDITIONAL.SELECT_A_FIELD' | translate}}</option>
                 </select>
