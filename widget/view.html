@@ -25,7 +25,7 @@ Copyright end -->
         <div class="padding-left-lg padding-bottom-lg">
             <div data-ng-if="!processing" class="progress margin-right-12">
                 <div data-ng-repeat="element in distribution" class="progress-bar truncate" role="progressbar"
-                    ng-style="{'width':distributionSegment + '%' ,'background-color': element.color}" title="{{element[picklistField] }}: {{element.total}}">
+                    ng-style="{'width':distributionSegment + '%' ,'background-color': element.color, 'color':'#000'}" title="{{element[picklistField] }}: {{element.total}}">
                     {{element[picklistField] }}: {{element.total}}
                 </div>
             </div>
