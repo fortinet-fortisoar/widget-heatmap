@@ -14,19 +14,26 @@ Copyright end -->
                 data-ng-class="{'fa-caret-up': !collapsed, 'fa-caret-down': collapsed}"></span>
         </div>
     </div>
-    <div data-ng-hide="collapsed">
-        <!-- <div class="padding-left-lg padding-bottom-lg">
-            <div data-ng-if="multipleFieldsItems" class="display-flex-space-between font-08em padding-right-15">
-                <div data-ng-repeat="fieldItem in multipleFieldsItems">
-                    {{fieldItem.title}} : {{responseData[fieldItem.title]}}
+    <div data-ng-hide="collapsed" class="padding-5">
+        <div data-ng-if="processing">
+            <cs-spinner></cs-spinner>
+        </div>
+        <div data-ng-if="!processing">
+            <div class="padding-left-lg padding-bottom-lg">
+                <div data-ng-if="multipleFieldsItems" class="display-flex font-08em padding-right-15"
+                    style="justify-content: start;">
+                    <div data-ng-repeat="fieldItem in multipleFieldsItemsData" style="flex: 0.5;">
+                        {{fieldItem.field}}: {{fieldItem.value}}
+                    </div>
                 </div>
             </div>
-        </div> -->
-        <div class="padding-left-lg padding-bottom-lg">
-            <div data-ng-if="!processing" class="progress margin-right-12">
-                <div data-ng-repeat="element in distribution" class="progress-bar truncate" role="progressbar"
-                    ng-style="{'width':distributionSegment + '%' ,'background-color': element.color, 'color':'#000'}" title="{{element[picklistField] }}: {{element.total}}">
-                    {{element[picklistField] }}: {{element.total}}
+            <div class="padding-left-lg padding-bottom-lg">
+                <div class="progress margin-right-12">
+                    <div data-ng-repeat="element in distribution" class="progress-bar truncate" role="progressbar"
+                        ng-style="{'width':distributionSegment + '%' ,'background-color': element.color, 'color':'#000'}"
+                        title="{{element[picklistField] }}: {{element.total}}">
+                        {{element[picklistField] }}: {{element.total}}
+                    </div>
                 </div>
             </div>
         </div>
