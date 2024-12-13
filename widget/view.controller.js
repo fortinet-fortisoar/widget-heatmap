@@ -73,7 +73,7 @@ Copyright end */
     function executeConnectorOperation(_moduleMetaData){
       let _connectorName = _moduleMetaData.connector;
       let _connectorAction = _moduleMetaData.operation;
-      let payload = { 'indicator': $scope.indicator || '8.8.8.8' };
+      let payload = { 'indicator': $scope.indicator };
       return heatmapService.executeAction(_connectorName, _connectorAction, payload);
     }
 
@@ -93,11 +93,11 @@ Copyright end */
       $scope.processing = false;
     }
 
-    function setMultipleFieldsData(_operationData){
+    function setMultipleFieldsData(titleFieldsData){
       $scope.multipleFieldsItems.forEach(element => {
         $scope.multipleFieldsItemsData.push({
           'field': element.title,
-          'value' : _operationData[element.name]
+          'value' : titleFieldsData[element.name]
         });
       });
     }
