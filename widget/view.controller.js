@@ -41,20 +41,17 @@ Copyright end */
         }
         $q.all(_promises).then(function(response){
           $scope.processing = false;
+          $scope.noData = true;
           if(response[0] && response[0].data && response[0].data.length > 0)
           {
             setDistributionData(response[0].data);
-          }
-          else{
-            $scope.noData = true;
+            $scope.noData = false;
           }
           if(response[1] && response[1].data)
           {
             $scope.connectorOperationResponse = response[1].data;
             setMultipleFieldsData($scope.connectorOperationResponse);
-          }
-          else{
-            $scope.noData = true;
+            $scope.noData = false;
           }
         })
       }
