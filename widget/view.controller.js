@@ -16,6 +16,7 @@ Copyright end */
     $scope.pageState = $state;
     $scope.multipleFieldsItemsData = [];
     $scope.connectorOperationResponse = {};
+    $scope.noData = false;
 
     function _handleTranslations() {
       widgetUtilityService.checkTranslationMode($scope.$parent.model.type).then(function () {
@@ -44,11 +45,17 @@ Copyright end */
           {
             setDistributionData(response[0].data);
           }
-           if(response[1] && response[1].data)
+          else{
+            $scope.noData = true;
+          }
+          if(response[1] && response[1].data)
           {
             $scope.connectorOperationResponse = response[1].data;
             setMultipleFieldsData($scope.connectorOperationResponse);
-          } 
+          }
+          else{
+            $scope.noData = true;
+          }
         })
       }
       else{
