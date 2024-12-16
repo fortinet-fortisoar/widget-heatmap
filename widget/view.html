@@ -18,7 +18,10 @@ Copyright end -->
         <div data-ng-if="processing">
             <cs-spinner></cs-spinner>
         </div>
-        <div data-ng-if="!processing">
+        <div data-ng-if="noData" class="font-09em padding-lg">
+            <span class="noInformation">No information available</span>
+        </div>
+        <div data-ng-if="!processing && !noData">
             <div class="padding-left-lg padding-bottom-lg">
                 <div data-ng-if="multipleFieldsItems" class="display-flex font-08em padding-right-15"
                     style="justify-content: start;">

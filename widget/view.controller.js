@@ -16,6 +16,7 @@ Copyright end */
     $scope.pageState = $state;
     $scope.multipleFieldsItemsData = [];
     $scope.connectorOperationResponse = {};
+    $scope.noData = false;
 
     function _handleTranslations() {
       widgetUtilityService.checkTranslationMode($scope.$parent.model.type).then(function () {
@@ -40,15 +41,18 @@ Copyright end */
         }
         $q.all(_promises).then(function(response){
           $scope.processing = false;
+          $scope.noData = true;
           if(response[0] && response[0].data && response[0].data.length > 0)
           {
             setDistributionData(response[0].data);
+            $scope.noData = false;
           }
-           if(response[1] && response[1].data)
+          if(response[1] && response[1].data)
           {
             $scope.connectorOperationResponse = response[1].data;
             setMultipleFieldsData($scope.connectorOperationResponse);
-          } 
+            $scope.noData = false;
+          }
         })
       }
       else{
