@@ -8,7 +8,7 @@ Copyright end */
     .module('cybersponse')
     .controller('heatmap100Ctrl', heatmap100Ctrl);
 
-  heatmap100Ctrl.$inject = ['$scope', 'widgetUtilityService', 'heatmapService', 'config', 'modelMetadatasService', '$state' , '$q', , '$rootScope'];
+  heatmap100Ctrl.$inject = ['$scope', 'widgetUtilityService', 'heatmapService', 'config', 'modelMetadatasService', '$state' , '$q', '$rootScope'];
 
   function heatmap100Ctrl($scope, widgetUtilityService, heatmapService, config, modelMetadatasService, $state, $q, $rootScope) {
     $scope.config = config;
