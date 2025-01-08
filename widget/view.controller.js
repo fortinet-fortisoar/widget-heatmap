@@ -70,7 +70,7 @@ Copyright end */
 
     function getRiskDistributionDetails(_moduleMetaData){ 
       let _connectorName = _moduleMetaData.connector;
-      let _connectorAction = _moduleMetaData.actions.risk_distribution;
+      let _connectorAction = _moduleMetaData.actions.get_risk_distribution;
       let payload = { 'indicator': $scope.indicator };
       return heatmapService.executeAction(_connectorName, _connectorAction, payload)
     }
