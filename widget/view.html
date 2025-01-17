@@ -19,7 +19,7 @@ Copyright end -->
             <cs-spinner></cs-spinner>
         </div>
         <div data-ng-if="noData" class="font-09em padding-lg">
-            <span class="noInformation">No information available</span>
+            <span class="noInformation">{{viewWidgetVars.ERROR_NO_INFORMATION_AVAILABLE}}</span>
         </div>
         <div data-ng-if="!processing && !noData">
             <div class="padding-left-lg padding-bottom-lg">

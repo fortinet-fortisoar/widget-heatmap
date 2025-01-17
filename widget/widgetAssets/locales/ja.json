@@ -1,5 +1,7 @@
 {
     "heatmap": {
-        "KEY_NAME": ""
-    }
+        "ERROR_NO_INFORMATION_AVAILABLE": "利用可能な情報がありません",
+        "HEADER_EDIT_HEATMAP": "ヒートマップを編集",
+        "HEADER_ADD_HEATMAP": "ヒートマップを追加"
+    }    
 }

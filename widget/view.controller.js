@@ -24,13 +24,18 @@ Copyright end */
       widgetUtilityService.checkTranslationMode($scope.$parent.model.type).then(function () {
         $scope.viewWidgetVars = {
           // Create your translating static string variables here
+          ERROR_NO_INFORMATION_AVAILABLE: widgetUtilityService.translate('heatmap.ERROR_NO_INFORMATION_AVAILABLE'),
         };
+        loadHeatmapData();
       });
     }
 
     function init() {
       // To handle backward compatibility for widget
       _handleTranslations();
+    }
+
+    function loadHeatmapData(){
       checkCurrentPage($scope.pageState);
       $scope.picklistField =  $scope.config.picklistField;
       $scope.multipleFieldsItems= $scope.config.multipleFieldsItems || [];
@@ -86,6 +91,10 @@ Copyright end */
       heatmapService.getResourceAggregate($scope.config).then(function (response) {
         if (response && response.data['hydra:member'] && response.data['hydra:member'].length > 0) {
           setRiskDistributionData(response.data['hydra:member']);
+        }
+        else{ //if API response has no data 
+          $scope.processing =false;
+          $scope.noData = true;
         }
       }, function (error) {
         console.log(error);
