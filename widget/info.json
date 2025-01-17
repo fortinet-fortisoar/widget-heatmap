@@ -12,8 +12,8 @@
             "Reports",
             "View Panel"
         ],
-        "certified": "No",
-        "publisher": "",
+        "certified": "Yes",
+        "publisher": "Fortinet",
         "compatibility": [
             "7.6.1"
         ],

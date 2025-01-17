@@ -22,15 +22,16 @@ Copyright end */
         widgetUtilityService.checkTranslationMode(widgetNameVersion).then(function () {
           $scope.viewWidgetVars = {
             // Create your translating static string variables here
-            LABEL_SELECT_AN_OPTION: "Select an Option",
-            LABEL_RESOURCE: "Resource"
+            HEADER_EDIT_HEATMAP: widgetUtilityService.translate('heatmap.HEADER_EDIT_HEATMAP'),
+            HEADER_ADD_HEATMAP: widgetUtilityService.translate('heatmap.HEADER_ADD_HEATMAP')
           };
+          $scope.header = $scope.config.title ? $scope.viewWidgetVars.HEADER_EDIT_HEATMAP : $scope.viewWidgetVars.HEADER_ADD_HEATMAP;
+          loadModules();
         });
-        loadModules();
       } else {
         $timeout(function () {
-          $scope.cancel();
-        });
+          cancel();
+        },100);
       }
     }
 
@@ -92,6 +93,11 @@ Copyright end */
     }
 
     function save() {
+      if (!$scope.heatmapForm.$valid) {
+        $scope.heatmapForm.$setTouched();
+        $scope.heatmapForm.$focusOnFirstError();
+        return;
+      }
       $uibModalInstance.close($scope.config);
     }
 

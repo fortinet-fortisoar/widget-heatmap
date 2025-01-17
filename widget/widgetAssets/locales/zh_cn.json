@@ -1,5 +1,7 @@
 {
     "heatmap": {
-        "KEY_NAME": ""
-    }
+        "ERROR_NO_INFORMATION_AVAILABLE": "无可用信息",
+        "HEADER_EDIT_HEATMAP": "编辑热图",
+        "HEADER_ADD_HEATMAP": "添加热图"
+    }    
 }
