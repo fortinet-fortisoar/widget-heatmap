@@ -1,15 +1,13 @@
 {
     "name": "heatmap",
     "title": "Heatmap",
-    "subTitle": "Show Fortisoar data having 2D property using heatmap",
+    "subTitle": "A heatmap widget is used to visually represent data where values are depicted by color, allowing users to quickly identify patterns and trends across multiple variables by seeing which areas on a grid have the highest concentration of a specific value",
     "version": "1.0.0",
     "published_date": 1733726076,
     "releaseNotes": "unavailable",
     "metadata": {
-        "description": "",
+        "description": "A heatmap widget is used to visually represent data where values are depicted by color, allowing users to quickly identify patterns and trends across multiple variables by seeing which areas on a grid have the highest concentration of a specific value",
         "pages": [
-            "Dashboard",
-            "Reports",
             "View Panel"
         ],
         "certified": "Yes",
@@ -18,9 +16,6 @@
             "7.6.1"
         ],
         "category": [
-            "Analytics and SIEM",
-            "Insider Threat",
-            "Malware Analysis",
             "Threat Intelligence",
             "Vulnerability and Risk Management"
         ]
