@@ -1,15 +1,13 @@
 {
     "name": "heatmap",
     "title": "Heatmap",
-    "subTitle": "Show Fortisoar data having 2D property using heatmap",
+    "subTitle": "Heatmap widget creates division of data using different color codes",
     "version": "1.0.0",
     "published_date": 1733726076,
     "releaseNotes": "unavailable",
     "metadata": {
-        "description": "",
+        "description": "Heatmap widget creates division of data using different color codes",
         "pages": [
-            "Dashboard",
-            "Reports",
             "View Panel"
         ],
         "certified": "Yes",
@@ -18,9 +16,6 @@
             "7.6.1"
         ],
         "category": [
-            "Analytics and SIEM",
-            "Insider Threat",
-            "Malware Analysis",
             "Threat Intelligence",
             "Vulnerability and Risk Management"
         ]
