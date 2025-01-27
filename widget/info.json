@@ -6,7 +6,7 @@
     "published_date": 1733726076,
     "releaseNotes": "unavailable",
     "metadata": {
-        "description": "Heatmap widget creates division of data using different color codes",
+        "description": "A heatmap widget is used to visually represent data where values are depicted by color, allowing users to quickly identify patterns and trends across multiple variables by seeing which areas on a grid have the highest concentration of a specific value",
         "pages": [
             "View Panel"
         ],
