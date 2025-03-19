@@ -18,7 +18,7 @@ Copyright end */
     $scope.connectorOperationResponse = {};
     $scope.noData = false;
     $scope.currentTheme = $rootScope.theme.id;
-
+    $scope.tooltipErrorMsg = '';
 
     function _handleTranslations() {
       widgetUtilityService.checkTranslationMode($scope.$parent.model.type).then(function () {
@@ -59,6 +59,10 @@ Copyright end */
                 $scope.noData = false;
               }
           }
+        },function(error){
+          $scope.processing = false;
+          $scope.noData = true;
+          $scope.tooltipErrorMsg = 'Error while fetching data. Please check connector logs for more info.';
         })
       }
       else{
