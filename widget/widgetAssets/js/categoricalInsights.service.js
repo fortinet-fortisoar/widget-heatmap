@@ -7,11 +7,11 @@ Copyright end */
 (function () {
     angular
         .module('cybersponse')
-        .factory('heatmapService', heatmapService);
+        .factory('categoricalInsightsService', categoricalInsightsService);
 
-    heatmapService.$inject = ['$q', '$http', 'Query', 'API', 'ALL_RECORDS_SIZE', '$resource', 'connectorService'];
+    categoricalInsightsService.$inject = ['$q', '$http', 'Query', 'API', 'ALL_RECORDS_SIZE', '$resource', 'connectorService'];
 
-    function heatmapService($q, $http, Query, API, ALL_RECORDS_SIZE, $resource, connectorService) {
+    function categoricalInsightsService($q, $http, Query, API, ALL_RECORDS_SIZE, $resource, connectorService) {
         var service;
         service = {
             getResourceAggregate: getResourceAggregate,

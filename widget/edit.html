@@ -2,7 +2,7 @@
     MIT License
     Copyright (c) 2025 Fortinet Inc
 Copyright end -->
-<form data-ng-submit="save()" class="noMargin" name="heatmapForm" data-ng-class="{'state-wait': processing }"
+<form data-ng-submit="save()" class="noMargin" name="categoricalInsightsForm" data-ng-class="{'state-wait': processing }"
     novalidate>
     <div class="modal-header">
         <h3 class="modal-title col-md-9" data-ng-bind="::header"></h3>
@@ -12,52 +12,66 @@ Copyright end -->
         </button>
     </div>
     <div class="modal-body">
+      <div data-ng-if="!isConfigurable">
+        <span class="ng-binding">{{viewWidgetVars.LABEL_NOT_CONFIGURABLE}}</span>
+      </div>
+      <div data-ng-if="isConfigurable">
         <div>
-            <div class="form-group" data-ng-class="{ 'has-error': heatmapForm.title.$invalid && heatmapForm.title.$touched }">
-                <label for="title" class="control-label">{{'COMPONENTS.VIEW_TEMPLATES.WIDGETS.CHART.TITLE' | translate}}<span class="text-danger">*</span>
-                </label>
-                <input id="title" name="title" type="text" class="form-control" data-ng-model="config.title" required>
-                <div data-cs-messages="heatmapForm.title"></div>
-              </div>
-            <div class="form-group"
-              data-ng-class="{ 'has-error': heatmapForm.resource.$invalid && heatmapForm.resource.$touched }"
-              data-ng-if="modules">
-              <label for="resource" class="control-label">{{'COMPONENTS.VIEW_TEMPLATES.WIDGETS.CHART.DATA_SOURCE' | translate}}<span class="text-danger">*</span></label>
-              <select name="resource" id="resource" class="form-control"
-                data-ng-options="module.type as module.name for module in modules" data-ng-model="config.resource"
-                required data-ng-change="loadAttributes()">
-                <option value="">{{'APP.LABEL.SELECT_AN_OPTION' | translate}}</option>
-              </select>
-              <div data-cs-messages="heatmapForm.resource"></div>
-            </div>
-            <div class="form-group cs-select">
-              <label class="control-label" for="picklistField">{{'COMPONENTS.VIEW_TEMPLATES.WIDGETS.RECOMMENDATION.SELECT_FIELDS' | translate}}</label>
-              <ui-select name="multipleFieldsItems" data-ng-model="config.multipleFieldsItems" multiple
-                class="custom-multi-select" tagging="undefined" tagging-label="false">
-                <ui-select-match placeholder="Select Fields">{{$item.title}}</ui-select-match>
-                <ui-select-choices repeat="option in multipleFields | filter: $select.search" refresh-delay="0"
-                  ng-show="($select.items.length >= 0) || ">
-                  <div ng-bind="option.title"></div>
-                </ui-select-choices>
-              </ui-select>
-              <span class="fa fa-sort-desc"></span>
-            </div>
-            <div data-cs-messages="heatmapForm.multipleFieldsItems"></div>
+          <div class="form-group"
+            data-ng-class="{ 'has-error': categoricalInsightsForm.title.$invalid && categoricalInsightsForm.title.$touched }">
+            <label for="title" class="control-label">{{'COMPONENTS.VIEW_TEMPLATES.WIDGETS.CHART.TITLE' | translate}}<span
+                class="text-danger">*</span>
+            </label>
+            <input id="title" name="title" type="text" class="form-control" data-ng-model="config.title" required>
+            <div data-cs-messages="categoricalInsightsForm.title"></div>
           </div>
-            <div class="form-group" data-ng-class="{ 'has-error': heatmapForm.picklistField.$invalid && heatmapForm.picklistField.$touched }">
-                <label class="control-label" for="picklistField">{{'COMPONENTS.JINJA.SELECT_PICKLIST' | translate}}<span class="text-danger">*</span></label>
-                <select class="form-control" name="picklistField" id="picklistField"
-                  data-ng-options="field.name as field.title for field in pickListFields" ng-model="config.picklistField" required>
-                  <option value="">{{'COMPONENTS.FILTER.CONDITIONAL.SELECT_A_FIELD' | translate}}</option>
-                </select>
-                <div data-cs-messages="heatmapForm.picklistField"></div>
-              </div>
+          <div class="form-group"
+            data-ng-class="{ 'has-error': categoricalInsightsForm.resource.$invalid && categoricalInsightsForm.resource.$touched }"
+            data-ng-if="modules">
+            <label for="resource" class="control-label">{{'COMPONENTS.VIEW_TEMPLATES.WIDGETS.CHART.DATA_SOURCE' |
+              translate}}<span class="text-danger">*</span></label>
+            <select name="resource" id="resource" class="form-control"
+              data-ng-options="module.type as module.name for module in modules" data-ng-model="config.resource" required
+              data-ng-change="loadAttributes()">
+              <option value="">{{'APP.LABEL.SELECT_AN_OPTION' | translate}}</option>
+            </select>
+            <div data-cs-messages="categoricalInsightsForm.resource"></div>
+          </div>
+          <div class="form-group cs-select">
+            <label class="control-label"
+              for="picklistField">{{'COMPONENTS.VIEW_TEMPLATES.WIDGETS.RECOMMENDATION.SELECT_FIELDS' | translate}}</label>
+            <ui-select name="multipleFieldsItems" data-ng-model="config.multipleFieldsItems" multiple
+              class="custom-multi-select" tagging="undefined" tagging-label="false">
+              <ui-select-match placeholder="Select Fields">{{$item.title}}</ui-select-match>
+              <ui-select-choices repeat="option in multipleFields | filter: $select.search" refresh-delay="0"
+                ng-show="($select.items.length >= 0) || ">
+                <div ng-bind="option.title"></div>
+              </ui-select-choices>
+            </ui-select>
+            <span class="fa fa-sort-desc"></span>
+          </div>
+          <div data-cs-messages="categoricalInsightsForm.multipleFieldsItems"></div>
         </div>
+        <div class="form-group"
+          data-ng-class="{ 'has-error': categoricalInsightsForm.picklistField.$invalid && categoricalInsightsForm.picklistField.$touched }">
+          <label class="control-label" for="picklistField">{{'COMPONENTS.JINJA.SELECT_PICKLIST' | translate}}<span
+              class="text-danger">*</span></label>
+          <select class="form-control" name="picklistField" id="picklistField"
+            data-ng-options="field.name as field.title for field in pickListFields" ng-model="config.picklistField" required>
+            <option value="">{{'COMPONENTS.FILTER.CONDITIONAL.SELECT_A_FIELD' | translate}}</option>
+          </select>
+          <div data-cs-messages="categoricalInsightsForm.picklistField"></div>
+        </div>
+      </div>
     </div>
     <div class="modal-footer">
-        <button id="edit-widget-save" type="submit" class="btn btn-sm btn-primary"><i
-                class="icon icon-check margin-right-sm"></i>{{'APP.BUTTON.SAVE' | translate}}</button>
-        <button id="edit-widget-cancel" type="button" class="btn btn-sm btn-default" data-ng-click="cancel()"><i
-                class="icon icon-close margin-right-sm"></i>{{'APP.BUTTON.CANCEL' | translate}}</button>
+      <button id="edit-widget-save" type="submit" class="btn btn-sm btn-primary" data-ng-if="!isConfigurable"><i
+        class="icon icon-check margin-right-sm"></i>{{'APP.BUTTON.OK' | translate}}</button>
+        <div data-ng-if="isConfigurable">
+          <button id="edit-widget-save" type="submit" class="btn btn-sm btn-primary"><i
+              class="icon icon-check margin-right-sm"></i>{{'APP.BUTTON.SAVE' | translate}}</button>
+          <button id="edit-widget-cancel" type="button" class="btn btn-sm btn-default" data-ng-click="cancel()"><i
+              class="icon icon-close margin-right-sm"></i>{{'APP.BUTTON.CANCEL' | translate}}</button>
+        </div>
     </div>
 </form>

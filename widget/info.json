@@ -1,12 +1,12 @@
 {
-    "name": "heatmap",
-    "title": "Heatmap",
-    "subTitle": "A heatmap widget is used to visually represent data where values are depicted by color, allowing users to quickly identify patterns and trends across multiple variables by seeing which areas on a grid have the highest concentration of a specific value",
+    "name": "categoricalInsights",
+    "title": "Catergorical Insights",
+    "subTitle": "Catergorical Insights",
     "version": "1.0.0",
-    "published_date": 1733726076,
+    "published_date": 1748599886,
     "releaseNotes": "unavailable",
     "metadata": {
-        "description": "A heatmap widget is used to visually represent data where values are depicted by color, allowing users to quickly identify patterns and trends across multiple variables by seeing which areas on a grid have the highest concentration of a specific value",
+        "description": "The widget shows distribution value along wth color code of selected category",
         "pages": [
             "View Panel"
         ],

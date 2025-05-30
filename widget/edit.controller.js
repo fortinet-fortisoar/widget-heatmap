@@ -6,14 +6,15 @@ Copyright end */
 (function () {
   angular
     .module('cybersponse')
-    .controller('editHeatmap100Ctrl', editHeatmap100Ctrl);
+    .controller('editCategoricalInsights100Ctrl', editCategoricalInsights100Ctrl);
 
-  editHeatmap100Ctrl.$inject = ['$scope', '$uibModalInstance', 'config', 'widgetUtilityService', '$timeout', 'appModulesService', 'Entity', 'modelMetadatasService'];
+  editCategoricalInsights100Ctrl.$inject = ['$scope', '$uibModalInstance', 'config', 'widgetUtilityService', '$timeout', 'appModulesService', 'Entity', 'modelMetadatasService'];
 
-  function editHeatmap100Ctrl($scope, $uibModalInstance, config, widgetUtilityService, $timeout, appModulesService, Entity, modelMetadatasService) {
+  function editCategoricalInsights100Ctrl($scope, $uibModalInstance, config, widgetUtilityService, $timeout, appModulesService, Entity, modelMetadatasService) {
     $scope.cancel = cancel;
     $scope.save = save;
     $scope.config = config;
+    $scope.isConfigurable = false;
 
     function _handleTranslations() {
       let widgetNameVersion = widgetUtilityService.getWidgetNameVersion($scope.$resolve.widget, $scope.$resolve.widgetBasePath);
@@ -22,10 +23,11 @@ Copyright end */
         widgetUtilityService.checkTranslationMode(widgetNameVersion).then(function () {
           $scope.viewWidgetVars = {
             // Create your translating static string variables here
-            HEADER_EDIT_HEATMAP: widgetUtilityService.translate('heatmap.HEADER_EDIT_HEATMAP'),
-            HEADER_ADD_HEATMAP: widgetUtilityService.translate('heatmap.HEADER_ADD_HEATMAP')
+            HEADER_EDIT_CATEGORIAL: widgetUtilityService.translate('categoricalInsights.HEADER_EDIT_CATEGORIAL'),
+            HEADER_ADD_CATEGORIAL: widgetUtilityService.translate('categoricalInsights.HEADER_ADD_CATEGORIAL'),
+            LABEL_NOT_CONFIGURABLE: widgetUtilityService.translate('categoricalInsights.LABEL_NOT_CONFIGURABLE')
           };
-          $scope.header = $scope.config.title ? $scope.viewWidgetVars.HEADER_EDIT_HEATMAP : $scope.viewWidgetVars.HEADER_ADD_HEATMAP;
+          $scope.header = $scope.config.title ? $scope.viewWidgetVars.HEADER_EDIT_CATEGORIAL : $scope.viewWidgetVars.HEADER_ADD_CATEGORIAL;
           loadModules();
         });
       } else {
@@ -93,9 +95,9 @@ Copyright end */
     }
 
     function save() {
-      if (!$scope.heatmapForm.$valid) {
-        $scope.heatmapForm.$setTouched();
-        $scope.heatmapForm.$focusOnFirstError();
+      if (!$scope.categoricalInsightsForm.$valid) {
+        $scope.categoricalInsightsForm.$setTouched();
+        $scope.categoricalInsightsForm.$focusOnFirstError();
         return;
       }
       $uibModalInstance.close($scope.config);

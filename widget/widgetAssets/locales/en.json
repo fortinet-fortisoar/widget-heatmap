@@ -1,7 +1,8 @@
 {
-    "heatmap": {
+    "categoricalInsights": {
         "ERROR_NO_INFORMATION_AVAILABLE": "No information available",
-        "HEADER_EDIT_HEATMAP": "Edit Heatmap",
-        "HEADER_ADD_HEATMAP": "Add Heatmap"
+        "HEADER_EDIT_CATEGORIAL": "Edit Categorical Insights",
+        "HEADER_ADD_CATEGORIAL": "Add Categorical Insights",
+        "LABEL_NOT_CONFIGURABLE": "This widget is bundled and not available for standalone use"
     }
 }
