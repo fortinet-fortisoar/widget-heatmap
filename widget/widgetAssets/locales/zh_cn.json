@@ -1,8 +1,8 @@
 {
     "categoricalInsights": {
         "ERROR_NO_INFORMATION_AVAILABLE": "无可用信息",
-        "HEADER_EDIT_HEATMAP": "编辑热图",
-        "HEADER_ADD_HEATMAP": "添加热图",
+        "HEADER_EDIT_CATEGORIAL": "编辑热图",
+        "HEADER_ADD_CATEGORIAL": "添加热图",
         "LABEL_NOT_CONFIGURABLE": "此小部件是捆绑提供的，无法单独使用。"
     }    
 }

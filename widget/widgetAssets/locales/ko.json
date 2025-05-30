@@ -1,7 +1,8 @@
 {
     "categoricalInsights": {
         "ERROR_NO_INFORMATION_AVAILABLE": "사용할 수 있는 정보가 없습니다",
-        "HEADER_EDIT_HEATMAP": "히트맵 편집",
-        "HEADER_ADD_HEATMAP": "히트맵 추가"
+        "HEADER_EDIT_CATEGORIAL": "히트맵 편집",
+        "HEADER_ADD_CATEGORIAL": "히트맵 추가",
+        "LABEL_NOT_CONFIGURABLE": "이 위젯은 번들로 제공되며 단독으로 사용할 수 없습니다."
     }    
 }
