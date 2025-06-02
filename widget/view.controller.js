@@ -6,11 +6,11 @@ Copyright end */
 (function () {
   angular
     .module('cybersponse')
-    .controller('heatmap100Ctrl', heatmap100Ctrl);
+    .controller('categoricalInsights100Ctrl', categoricalInsights100Ctrl);
 
-  heatmap100Ctrl.$inject = ['$scope', 'widgetUtilityService', 'heatmapService', 'config', 'modelMetadatasService', '$state' , '$q', '$rootScope'];
+  categoricalInsights100Ctrl.$inject = ['$scope', 'widgetUtilityService', 'categoricalInsightsService', 'config', 'modelMetadatasService', '$state' , '$q', '$rootScope'];
 
-  function heatmap100Ctrl($scope, widgetUtilityService, heatmapService, config, modelMetadatasService, $state, $q, $rootScope) {
+  function categoricalInsights100Ctrl($scope, widgetUtilityService, categoricalInsightsService, config, modelMetadatasService, $state, $q, $rootScope) {
     $scope.config = config;
     $scope.processing = true;
     $scope.pageState = $state;
@@ -24,9 +24,9 @@ Copyright end */
       widgetUtilityService.checkTranslationMode($scope.$parent.model.type).then(function () {
         $scope.viewWidgetVars = {
           // Create your translating static string variables here
-          ERROR_NO_INFORMATION_AVAILABLE: widgetUtilityService.translate('heatmap.ERROR_NO_INFORMATION_AVAILABLE'),
+          ERROR_NO_INFORMATION_AVAILABLE: widgetUtilityService.translate('categoricalInsights.ERROR_NO_INFORMATION_AVAILABLE'),
         };
-        loadHeatmapData();
+        loadCategoricalData();
       });
     }
 
@@ -35,7 +35,7 @@ Copyright end */
       _handleTranslations();
     }
 
-    function loadHeatmapData(){
+    function loadCategoricalData(){
       checkCurrentPage($scope.pageState);
       $scope.picklistField =  $scope.config.picklistField;
       $scope.multipleFieldsItems= $scope.config.multipleFieldsItems || [];
@@ -81,18 +81,18 @@ Copyright end */
       let _connectorName = _moduleMetaData.connector;
       let _connectorAction = _moduleMetaData.actions.get_risk_distribution;
       let payload = { 'indicator': $scope.indicator };
-      return heatmapService.executeAction(_connectorName, _connectorAction, payload)
+      return categoricalInsightsService.executeAction(_connectorName, _connectorAction, payload)
     }
 
     function getRecordDetails(_moduleMetaData){
       let _connectorName = _moduleMetaData.connector;
       let _connectorAction = _moduleMetaData.operation;
       let payload = { 'indicator': $scope.indicator };
-      return heatmapService.executeAction(_connectorName, _connectorAction, payload);
+      return categoricalInsightsService.executeAction(_connectorName, _connectorAction, payload);
     }
 
     function executeAPIQuery(){
-      heatmapService.getResourceAggregate($scope.config).then(function (response) {
+      categoricalInsightsService.getResourceAggregate($scope.config).then(function (response) {
         if (response && response.data['hydra:member'] && response.data['hydra:member'].length > 0) {
           setRiskDistributionData(response.data['hydra:member']);
         }

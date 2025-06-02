@@ -1,7 +1,8 @@
 {
-    "heatmap": {
+    "categoricalInsights": {
         "ERROR_NO_INFORMATION_AVAILABLE": "利用可能な情報がありません",
-        "HEADER_EDIT_HEATMAP": "ヒートマップを編集",
-        "HEADER_ADD_HEATMAP": "ヒートマップを追加"
+        "HEADER_EDIT_CATEGORIAL": "ヒートマップを編集",
+        "HEADER_ADD_CATEGORIAL": "ヒートマップを追加",
+        "LABEL_NOT_CONFIGURABLE": "このウィジェットはバンドルされており、単体では使用できません"
     }    
 }
